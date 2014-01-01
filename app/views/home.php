@@ -13,5 +13,14 @@
 	<script src="js/views.js"></script>
 	<script src="js/router.js"></script>
 	
+	<script>
+		new App.Router;
+		Backbone.history.start();
+
+		App.contacts = new App.Collections.Contacts;
+		App.contacts.fetch().then(function() {
+			new App.Views.App({ collection: App.contacts});
+		});
+	</script>
 </body>
 </html>
