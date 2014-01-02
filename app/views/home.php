@@ -4,6 +4,33 @@
 		<title></title>
 	</head>
 <body>
+
+	<h1>Contacts</h1>
+
+	<form id="addContact">
+		<div>
+			<label for="first_name">First Name:</label>
+			<input type="text" id="first_name" name="first_name">
+		</div>
+
+		<div>
+			<label for="last_name">Last Name:</label>
+			<input type="text" id="last_name" name="last_name">
+		</div>
+
+		<div>
+			<label for="email_address">Email Address:</label>
+			<input type="text" id="email_address" name="email_address">
+		</div>
+
+		<div>
+			<label for="description">Description:</label>
+			<textarea id="description" name="description"></textarea>
+		</div>
+		<div>
+			<input type="submit" value="Add Contact">
+		</div>
+	</form>
 	<script src="http://code.jquery.com/jquery-2.0.3.js"></script>
 	<script src="http://underscorejs.org/underscore.js"></script>
 	<script src="http://backbonejs.org/backbone.js"></script>
