@@ -30,7 +30,7 @@ class ContactsController extends \BaseController {
 	public function store()
 	{
 		$input = Input::json()->all();
-		Contact::firstOrCreate(array(
+	 return Contact::create(array(
 			'first_name' => $input['first_name'],
 			'last_name' => $input['last_name'],
 			'email_address' => $input['email_address'],
@@ -69,14 +69,14 @@ class ContactsController extends \BaseController {
 	public function update($id)
 	{
 		$contact = Contact::find($id);
-		$input = Input::json();
+		$input = Input::json()->all();
 
-		$contact->first_name = $input->first_name;
-		$contact->last_name = $input->last_name;
-		$contact->email_address = $input->email_address;
-		$contact->description = $input->description;
+		$contact->first_name = $input['first_name'];
+		$contact->last_name = $input['last_name'];
+		$contact->email_address = $input['email_address'];
+		$contact->description = $input['description'];
 	
-		$contact->Save();
+		$contact->save();
 	}
 
 	/**
@@ -87,7 +87,11 @@ class ContactsController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
-		return Contact::find($id)->delete();
+		if(Contact::find($id)->delete()){
+			return 'Deleted';
+		} else {
+			return 'deletion failed';
+		}
 	}
 
 }
